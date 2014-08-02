@@ -1,0 +1,560 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ADAA0612198DA3DC002121FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0611198DA3DC002121FA /* Foundation.framework */; };
+		ADAA0614198DA3DC002121FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0613198DA3DC002121FA /* CoreGraphics.framework */; };
+		ADAA0616198DA3DC002121FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0615198DA3DC002121FA /* UIKit.framework */; };
+		ADAA061C198DA3DC002121FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ADAA061A198DA3DC002121FA /* InfoPlist.strings */; };
+		ADAA061E198DA3DC002121FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA061D198DA3DC002121FA /* main.m */; };
+		ADAA0622198DA3DC002121FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA0621198DA3DC002121FA /* AppDelegate.m */; };
+		ADAA0625198DA3DC002121FA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAA0623198DA3DC002121FA /* Main_iPhone.storyboard */; };
+		ADAA0628198DA3DC002121FA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAA0626198DA3DC002121FA /* Main_iPad.storyboard */; };
+		ADAA062B198DA3DC002121FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA062A198DA3DC002121FA /* ViewController.m */; };
+		ADAA062D198DA3DC002121FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAA062C198DA3DC002121FA /* Images.xcassets */; };
+		ADAA0634198DA3DD002121FA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0633198DA3DD002121FA /* XCTest.framework */; };
+		ADAA0635198DA3DD002121FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0611198DA3DC002121FA /* Foundation.framework */; };
+		ADAA0636198DA3DD002121FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0615198DA3DC002121FA /* UIKit.framework */; };
+		ADAA063E198DA3DD002121FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ADAA063C198DA3DD002121FA /* InfoPlist.strings */; };
+		ADAA0640198DA3DD002121FA /* TempoRunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA063F198DA3DD002121FA /* TempoRunTests.m */; };
+		ADAA067F198DA750002121FA /* libENAPILibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA064F198DA63E002121FA /* libENAPILibrary.a */; };
+		ADAA0681198DA75E002121FA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0680198DA75E002121FA /* MediaPlayer.framework */; };
+		ADAA0683198DA8F8002121FA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0682198DA8F8002121FA /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ADAA0637198DA3DD002121FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADAA0606198DA3DC002121FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADAA060D198DA3DC002121FA;
+			remoteInfo = TempoRun;
+		};
+		ADAA064E198DA63E002121FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADAA0649198DA63E002121FA /* ENAPILibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EE1165416A3212F00A62D4D;
+			remoteInfo = ENAPILibrary;
+		};
+		ADAA0650198DA63E002121FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADAA0649198DA63E002121FA /* ENAPILibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EE1166516A3213000A62D4D;
+			remoteInfo = ENAPILibraryTests;
+		};
+		ADAA067D198DA73F002121FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADAA0649198DA63E002121FA /* ENAPILibrary.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EE1165316A3212F00A62D4D;
+			remoteInfo = ENAPILibrary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ADAA060E198DA3DC002121FA /* TempoRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempoRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAA0611198DA3DC002121FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ADAA0613198DA3DC002121FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ADAA0615198DA3DC002121FA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ADAA0619198DA3DC002121FA /* TempoRun-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TempoRun-Info.plist"; sourceTree = "<group>"; };
+		ADAA061B198DA3DC002121FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ADAA061D198DA3DC002121FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ADAA061F198DA3DC002121FA /* TempoRun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TempoRun-Prefix.pch"; sourceTree = "<group>"; };
+		ADAA0620198DA3DC002121FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ADAA0621198DA3DC002121FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ADAA0624198DA3DC002121FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		ADAA0627198DA3DC002121FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		ADAA0629198DA3DC002121FA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ADAA062A198DA3DC002121FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ADAA062C198DA3DC002121FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ADAA0632198DA3DD002121FA /* TempoRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TempoRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAA0633198DA3DD002121FA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ADAA063B198DA3DD002121FA /* TempoRunTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TempoRunTests-Info.plist"; sourceTree = "<group>"; };
+		ADAA063D198DA3DD002121FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ADAA063F198DA3DD002121FA /* TempoRunTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempoRunTests.m; sourceTree = "<group>"; };
+		ADAA0649198DA63E002121FA /* ENAPILibrary.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ENAPILibrary.xcodeproj; path = ../../ENWorkspace/ENAPILibrary/ENAPILibrary.xcodeproj; sourceTree = "<group>"; };
+		ADAA0680198DA75E002121FA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		ADAA0682198DA8F8002121FA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADAA060B198DA3DC002121FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAA0683198DA8F8002121FA /* AVFoundation.framework in Frameworks */,
+				ADAA0681198DA75E002121FA /* MediaPlayer.framework in Frameworks */,
+				ADAA067F198DA750002121FA /* libENAPILibrary.a in Frameworks */,
+				ADAA0614198DA3DC002121FA /* CoreGraphics.framework in Frameworks */,
+				ADAA0616198DA3DC002121FA /* UIKit.framework in Frameworks */,
+				ADAA0612198DA3DC002121FA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADAA062F198DA3DD002121FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAA0634198DA3DD002121FA /* XCTest.framework in Frameworks */,
+				ADAA0636198DA3DD002121FA /* UIKit.framework in Frameworks */,
+				ADAA0635198DA3DD002121FA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ADAA0605198DA3DC002121FA = {
+			isa = PBXGroup;
+			children = (
+				ADAA0649198DA63E002121FA /* ENAPILibrary.xcodeproj */,
+				ADAA0617198DA3DC002121FA /* TempoRun */,
+				ADAA0639198DA3DD002121FA /* TempoRunTests */,
+				ADAA0610198DA3DC002121FA /* Frameworks */,
+				ADAA060F198DA3DC002121FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ADAA060F198DA3DC002121FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA060E198DA3DC002121FA /* TempoRun.app */,
+				ADAA0632198DA3DD002121FA /* TempoRunTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADAA0610198DA3DC002121FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA0682198DA8F8002121FA /* AVFoundation.framework */,
+				ADAA0680198DA75E002121FA /* MediaPlayer.framework */,
+				ADAA0611198DA3DC002121FA /* Foundation.framework */,
+				ADAA0613198DA3DC002121FA /* CoreGraphics.framework */,
+				ADAA0615198DA3DC002121FA /* UIKit.framework */,
+				ADAA0633198DA3DD002121FA /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADAA0617198DA3DC002121FA /* TempoRun */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA0620198DA3DC002121FA /* AppDelegate.h */,
+				ADAA0621198DA3DC002121FA /* AppDelegate.m */,
+				ADAA0623198DA3DC002121FA /* Main_iPhone.storyboard */,
+				ADAA0626198DA3DC002121FA /* Main_iPad.storyboard */,
+				ADAA0629198DA3DC002121FA /* ViewController.h */,
+				ADAA062A198DA3DC002121FA /* ViewController.m */,
+				ADAA062C198DA3DC002121FA /* Images.xcassets */,
+				ADAA0618198DA3DC002121FA /* Supporting Files */,
+			);
+			path = TempoRun;
+			sourceTree = "<group>";
+		};
+		ADAA0618198DA3DC002121FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA0619198DA3DC002121FA /* TempoRun-Info.plist */,
+				ADAA061A198DA3DC002121FA /* InfoPlist.strings */,
+				ADAA061D198DA3DC002121FA /* main.m */,
+				ADAA061F198DA3DC002121FA /* TempoRun-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADAA0639198DA3DD002121FA /* TempoRunTests */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA063F198DA3DD002121FA /* TempoRunTests.m */,
+				ADAA063A198DA3DD002121FA /* Supporting Files */,
+			);
+			path = TempoRunTests;
+			sourceTree = "<group>";
+		};
+		ADAA063A198DA3DD002121FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA063B198DA3DD002121FA /* TempoRunTests-Info.plist */,
+				ADAA063C198DA3DD002121FA /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADAA064A198DA63E002121FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADAA064F198DA63E002121FA /* libENAPILibrary.a */,
+				ADAA0651198DA63E002121FA /* ENAPILibraryTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADAA060D198DA3DC002121FA /* TempoRun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADAA0643198DA3DD002121FA /* Build configuration list for PBXNativeTarget "TempoRun" */;
+			buildPhases = (
+				ADAA060A198DA3DC002121FA /* Sources */,
+				ADAA060B198DA3DC002121FA /* Frameworks */,
+				ADAA060C198DA3DC002121FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADAA067E198DA73F002121FA /* PBXTargetDependency */,
+			);
+			name = TempoRun;
+			productName = TempoRun;
+			productReference = ADAA060E198DA3DC002121FA /* TempoRun.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ADAA0631198DA3DD002121FA /* TempoRunTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADAA0646198DA3DD002121FA /* Build configuration list for PBXNativeTarget "TempoRunTests" */;
+			buildPhases = (
+				ADAA062E198DA3DD002121FA /* Sources */,
+				ADAA062F198DA3DD002121FA /* Frameworks */,
+				ADAA0630198DA3DD002121FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADAA0638198DA3DD002121FA /* PBXTargetDependency */,
+			);
+			name = TempoRunTests;
+			productName = TempoRunTests;
+			productReference = ADAA0632198DA3DD002121FA /* TempoRunTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADAA0606198DA3DC002121FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = metacupcake;
+				TargetAttributes = {
+					ADAA0631198DA3DD002121FA = {
+						TestTargetID = ADAA060D198DA3DC002121FA;
+					};
+				};
+			};
+			buildConfigurationList = ADAA0609198DA3DC002121FA /* Build configuration list for PBXProject "TempoRun" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ADAA0605198DA3DC002121FA;
+			productRefGroup = ADAA060F198DA3DC002121FA /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = ADAA064A198DA63E002121FA /* Products */;
+					ProjectRef = ADAA0649198DA63E002121FA /* ENAPILibrary.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				ADAA060D198DA3DC002121FA /* TempoRun */,
+				ADAA0631198DA3DD002121FA /* TempoRunTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		ADAA064F198DA63E002121FA /* libENAPILibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libENAPILibrary.a;
+			remoteRef = ADAA064E198DA63E002121FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ADAA0651198DA63E002121FA /* ENAPILibraryTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ENAPILibraryTests.octest;
+			remoteRef = ADAA0650198DA63E002121FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ADAA060C198DA3DC002121FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAA0628198DA3DC002121FA /* Main_iPad.storyboard in Resources */,
+				ADAA062D198DA3DC002121FA /* Images.xcassets in Resources */,
+				ADAA0625198DA3DC002121FA /* Main_iPhone.storyboard in Resources */,
+				ADAA061C198DA3DC002121FA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADAA0630198DA3DD002121FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAA063E198DA3DD002121FA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADAA060A198DA3DC002121FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAA062B198DA3DC002121FA /* ViewController.m in Sources */,
+				ADAA0622198DA3DC002121FA /* AppDelegate.m in Sources */,
+				ADAA061E198DA3DC002121FA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADAA062E198DA3DD002121FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAA0640198DA3DD002121FA /* TempoRunTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ADAA0638198DA3DD002121FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADAA060D198DA3DC002121FA /* TempoRun */;
+			targetProxy = ADAA0637198DA3DD002121FA /* PBXContainerItemProxy */;
+		};
+		ADAA067E198DA73F002121FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ENAPILibrary;
+			targetProxy = ADAA067D198DA73F002121FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ADAA061A198DA3DC002121FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADAA061B198DA3DC002121FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ADAA0623198DA3DC002121FA /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADAA0624198DA3DC002121FA /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		ADAA0626198DA3DC002121FA /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADAA0627198DA3DC002121FA /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		ADAA063C198DA3DD002121FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADAA063D198DA3DD002121FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ADAA0641198DA3DD002121FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ADAA0642198DA3DD002121FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADAA0644198DA3DD002121FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TempoRun/TempoRun-Prefix.pch";
+				INFOPLIST_FILE = "TempoRun/TempoRun-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}\"/../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ADAA0645198DA3DD002121FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TempoRun/TempoRun-Prefix.pch";
+				INFOPLIST_FILE = "TempoRun/TempoRun-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}\"/../../**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		ADAA0647198DA3DD002121FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TempoRun.app/TempoRun";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TempoRun/TempoRun-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TempoRunTests/TempoRunTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ADAA0648198DA3DD002121FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TempoRun.app/TempoRun";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TempoRun/TempoRun-Prefix.pch";
+				INFOPLIST_FILE = "TempoRunTests/TempoRunTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADAA0609198DA3DC002121FA /* Build configuration list for PBXProject "TempoRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADAA0641198DA3DD002121FA /* Debug */,
+				ADAA0642198DA3DD002121FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADAA0643198DA3DD002121FA /* Build configuration list for PBXNativeTarget "TempoRun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADAA0644198DA3DD002121FA /* Debug */,
+				ADAA0645198DA3DD002121FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADAA0646198DA3DD002121FA /* Build configuration list for PBXNativeTarget "TempoRunTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADAA0647198DA3DD002121FA /* Debug */,
+				ADAA0648198DA3DD002121FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ADAA0606198DA3DC002121FA /* Project object */;
+}
