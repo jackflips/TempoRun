@@ -5,7 +5,7 @@
 #define DISC_DENSITY 0.25
 #define ACCEL_RATIO 0.05
 #define ACCEL_STEP_MS 50
-#define BUFFER_SIZE 30
+#define BUFFER_SIZE 10
 
 
 typedef struct Vec2d {
@@ -124,7 +124,7 @@ static int get_best_beat(int16_t* buff){
   return bestsize;
 }
 
-static void send_to_phone(int num){
+static void send_to_phone(uint8_t* buffer){
 
   // Byte array + k:
   //static const uint32_t SOME_DATA_KEY = 0xb00bf00b;
@@ -147,13 +147,18 @@ static void send_to_phone(int num){
   // Write the CString:
   //dict_write_cstring(&iter, SOME_STRING_KEY, message);
   // End:
-  //const uint32_t final_size = dict_write_end(&iter);
   DictionaryIterator *iter;
 
-  app_message_outbox_begin(&iter);
+  dict_write_begin(&iter, buffer, sizeof(buffer));
 
-  Tuplet value = TupletInteger(1, num);
-  dict_write_tuplet(iter, &value);
+
+
+  //app_message_outbox_begin(&iter);
+
+  dict_write_data(&iter, 1, buffer , sizeof(buffer));
+
+  //Tuplet value = TupletInteger(1, num);
+  //dict_write_tuplet(iter, &value);
 
 
   app_message_outbox_send();
