@@ -1,13 +1,13 @@
-# project  configured on Sat Aug  2 16:05:43 2014 by
+# project  configured on Sun Aug  3 11:42:32 2014 by
 # waf 1.7.11 (abi 98, python 20707f0 on darwin)
 # using /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/waf configure build
 #
 ----------------------------------------
 Setting top to
-/Users/mozilla/Documents/accel-example
+/Users/mozilla/Documents/TempoRun/accel-example
 ----------------------------------------
 Setting out to
-/Users/mozilla/Documents/accel-example/build
+/Users/mozilla/Documents/TempoRun/accel-example/build
 ----------------------------------------
 Checking for program gcc,cc
 arm-none-eabi-gcc

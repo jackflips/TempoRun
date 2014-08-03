@@ -5,6 +5,8 @@
 #define DISC_DENSITY 0.25
 #define ACCEL_RATIO 0.05
 #define ACCEL_STEP_MS 50
+#define BUFFER_SIZE 30
+
 
 typedef struct Vec2d {
   double x;
@@ -17,6 +19,8 @@ typedef struct Disc {
   double mass;
   double radius;
 } Disc;
+
+AccelData lastData;
 
 static Disc discs[NUM_DISCS];
 
@@ -32,59 +36,128 @@ static AppTimer *timer;
 
 static TextLayer* text_layer;
 
-static char buff[20];
+static int16_t buff[BUFFER_SIZE];
 
-static double disc_calc_mass(Disc *disc) {
-  return MATH_PI * disc->radius * disc->radius * DISC_DENSITY;
+static int i;
+
+static char message[40];
+
+static int best;
+
+ void out_sent_handler(DictionaryIterator *sent, void *context) {
+   // outgoing message was delivered
+ }
+
+
+ void out_failed_handler(DictionaryIterator *failed, AppMessageResult reason, void *context) {
+   // outgoing message failed
+ }
+
+
+ void in_received_handler(DictionaryIterator *received, void *context) {
+   // incoming message received
+ }
+
+
+ void in_dropped_handler(AppMessageResult reason, void *context) {
+   // incoming message dropped
+ }
+
+
+
+static AccelData accelDataDiff(AccelData d1, AccelData d2) {
+  AccelData diff;
+  diff.x = d2.x - d1.x;
+  diff.y = d2.y - d1.y;
+  diff.z = d2.z - d2.z;
+  diff.timestamp = (d2.timestamp + d1.timestamp) / 2;
+  return diff;
 }
 
-static void disc_init(Disc *disc) {
-  GRect frame = window_frame;
-  disc->pos.x = frame.size.w/2;
-  disc->pos.y = frame.size.h/2;
-  disc->vel.x = 0;
-  disc->vel.y = 0;
-  disc->radius = next_radius;
-  disc->mass = disc_calc_mass(disc);
-  next_radius += 0.5;
-}
+static float get(int16_t* buff, int size){
 
-static void disc_apply_force(Disc *disc, Vec2d force) {
-  disc->vel.x += force.x / disc->mass;
-  disc->vel.y += force.y / disc->mass;
-}
+  float total = 0;
 
-static void disc_apply_accel(Disc *disc, AccelData accel) {
-  Vec2d force;
-  force.x = accel.x * ACCEL_RATIO;
-  force.y = -accel.y * ACCEL_RATIO;
-  disc_apply_force(disc, force);
-}
+  int lastposc = -1;
+  int thisposc = 0;
 
-static void disc_update(Disc *disc) {
-  const GRect frame = window_frame;
-  double e = 0.5;
-  if ((disc->pos.x - disc->radius < 0 && disc->vel.x < 0)
-    || (disc->pos.x + disc->radius > frame.size.w && disc->vel.x > 0)) {
-    disc->vel.x = -disc->vel.x * e;
+  int dummy = 0;
+  //for getting actual values
+  for(int p = 0; p < BUFFER_SIZE; ++p){
+    if(buff[p] > 0) 
+      ++thisposc;
+    if(p % size == 0){
+
+      if (dummy % 2 == 0){
+        int diff = abs(lastposc - thisposc);
+        total += (float) diff / (float) size;
+      }
+
+      dummy++;
+      lastposc = thisposc;
+    }
   }
-  if ((disc->pos.y - disc->radius < 0 && disc->vel.y < 0)
-    || (disc->pos.y + disc->radius > frame.size.h && disc->vel.y > 0)) {
-    disc->vel.y = -disc->vel.y * e;
-  }
-  disc->pos.x += disc->vel.x;
-  disc->pos.y += disc->vel.y;
+
+  return total;
 }
 
-static void disc_draw(GContext *ctx, Disc *disc) {
-  graphics_context_set_fill_color(ctx, GColorWhite);
-  graphics_fill_circle(ctx, GPoint(disc->pos.x, disc->pos.y), disc->radius);
+// O(n^2)
+static int get_best_beat(int16_t* buff){
+  //for adjusting size
+  int bestsize = -1;
+  int bestval = BUFFER_SIZE;
+  for(int it = 1; it < BUFFER_SIZE / 2; ++it){
+    float val = get(buff, it);
+
+    //snprintf(message, 40, "%d", (int) (val * 1000));
+    //text_layer_set_text(text_layer, message);
+
+    if (val < bestval){
+      bestval = val;
+      bestsize = it;
+    }
+  }
+
+  //snprintf(message, 40, "%d", (int) (bestval * 1000));
+  //|text_layer_set_text(text_layer, message);
+
+  return bestsize;
 }
 
-static void disc_layer_update_callback(Layer *me, GContext *ctx) {
-  for (int i = 0; i < NUM_DISCS; i++) {
-    disc_draw(ctx, &discs[i]);
-  }
+static void send_to_phone(int num){
+
+  // Byte array + k:
+  //static const uint32_t SOME_DATA_KEY = 0xb00bf00b;
+  //static const uint8_t data[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+  // CString + key:
+  //static const uint32_t SOME_STRING_KEY = 0;
+  //static const char *string = "Hello World";
+  // Calculate the buffer size that is needed for the final Dictionary:
+  //const uint8_t key_count = 2;
+  //const uint32_t size = dict_calc_buffer_size(key_count, sizeof(data),
+  //                                            strlen(string) + 1);
+  // Stack-allocated buffer in which to create the Dictionary:
+  //uint8_t buffer[100];
+  // Iterator variable, keeps the state of the creation serialization process:
+  //DictionaryIterator iter;
+  // Begin:
+  //dict_write_begin(&iter, buffer, sizeof(buffer));
+  // Write the Data:
+  //dict_write_data(&iter, SOME_DATA_KEY, data, sizeof(data));
+  // Write the CString:
+  //dict_write_cstring(&iter, SOME_STRING_KEY, message);
+  // End:
+  //const uint32_t final_size = dict_write_end(&iter);
+  DictionaryIterator *iter;
+
+  app_message_outbox_begin(&iter);
+
+  Tuplet value = TupletInteger(1, num);
+  dict_write_tuplet(iter, &value);
+
+
+  app_message_outbox_send();
+
 }
 
 static void timer_callback(void *data) {
@@ -92,18 +165,37 @@ static void timer_callback(void *data) {
 
   accel_service_peek(&accel);
 
-  snprintf(buff, 20, "%i, %i, %i", accel.x, accel.y, accel.z);
+  AccelData delta = accelDataDiff(accel, lastData);  //LOOKINTO
 
-/*
-  for (int i = 0; i < NUM_DISCS; i++) {
-    Disc *disc = &discs[i];
-    disc_apply_accel(disc, accel);
-    disc_update(disc);
+  /*
+  float mag = fsqrt(delta.x + delta.y + delta.z);
+
+  void priq_push(pri_queue q, void *data, int pri)
+  priq_push(q, mag, ftoi(mag));
+
+  snprintf(buff, 20, "%i, %i, %i", accel.x, accel.y, accel.z);
+*/
+
+  buff[i++] = delta.x;
+  //int best = -8;
+  //++best;
+  
+
+  if(i >= BUFFER_SIZE){
+    i = 0;
+    int total = 0;
+    for(int it = 0; it < BUFFER_SIZE; ++it){
+      total += abs(buff[it]);
+    }
+
+    float average = total / BUFFER_SIZE;
+    snprintf(message, 20, "%d", (int)(average * 1000));
+    text_layer_set_text(text_layer, message);
+
+    send_to_phone((int) (average * 1000));
   }
 
-  layer_mark_dirty(disc_layer);
-*/
-  text_layer_set_text(text_layer, buff);
+
 
   timer = app_timer_register(ACCEL_STEP_MS, timer_callback, NULL);
 }
@@ -112,22 +204,14 @@ static void window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect frame = window_frame = layer_get_frame(window_layer);
 
-/*
-  disc_layer = layer_create(frame);
-  layer_set_update_proc(disc_layer, disc_layer_update_callback);
-  layer_add_child(window_layer, disc_layer);
-
-  for (int i = 0; i < NUM_DISCS; i++) {
-    disc_init(&discs[i]);
-  }
-*/
-
   text_layer = text_layer_create(
     (GRect) { 
-      .origin = { 0, 72 }, 
-      .size = { frame.size.w, 20 } 
+      .origin = { 0, 0 }, 
+      .size = { frame.size.w, frame.size.h } 
     }
   );
+
+  i = 0;
   text_layer_set_text(text_layer, "Press a button");
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(text_layer));
@@ -151,7 +235,19 @@ static void init(void) {
   accel_data_service_subscribe(0, NULL);
 
   timer = app_timer_register(ACCEL_STEP_MS, timer_callback, NULL);
+
+   app_message_register_inbox_received(in_received_handler);
+   app_message_register_inbox_dropped(in_dropped_handler);
+   app_message_register_outbox_sent(out_sent_handler);
+   app_message_register_outbox_failed(out_failed_handler);
+
+   const uint32_t inbound_size = 64;
+   const uint32_t outbound_size = 64;
+   app_message_open(inbound_size, outbound_size);
+
+
 }
+
 
 static void deinit(void) {
   accel_data_service_unsubscribe();

@@ -2,6 +2,17 @@ Archive member included because of file (symbol)
 
 /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
                               src/feature_accel_discs.c.7.o (accel_data_service_unsubscribe)
+/Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+                              src/feature_accel_discs.c.7.o (__aeabi_i2f)
+/Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+                              src/feature_accel_discs.c.7.o (__aeabi_fmul)
+/Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+                              src/feature_accel_discs.c.7.o (__aeabi_f2iz)
+
+Allocating common symbols
+Common symbol       size              file
+
+lastData            0xf               src/feature_accel_discs.c.7.o
 
 Discarded input sections
 
@@ -82,8 +93,6 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.app_log  0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.app_message_deregister_callbacks
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.app_message_open
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.app_sync_deinit
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
@@ -178,8 +187,6 @@ Discarded input sections
  .text.dict_write_int32
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.dict_write_int8
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.dict_write_tuplet
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.dict_write_uint16
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
@@ -534,19 +541,7 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.app_message_inbox_size_maximum
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.app_message_outbox_begin
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.app_message_outbox_send
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.app_message_outbox_size_maximum
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.app_message_register_inbox_dropped
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.app_message_register_inbox_received
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.app_message_register_outbox_failed
-                0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .text.app_message_register_outbox_sent
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.app_message_set_context
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
@@ -585,6 +580,9 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .text.window_get_click_config_context
                 0x0000000000000000        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+ .bss           0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .bss           0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .bss           0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
  .text          0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
  .bss           0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
  .eh_frame      0x0000000000000000        0x4 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
@@ -621,135 +619,208 @@ LOAD /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-non
  .pbl_header    0x0000000000000000       0x82 appinfo.auto.c.7.o
                 0x0000000000000000                __pbl_app_info
 
-.text           0x0000000000000084      0x29a
+.text           0x0000000000000084      0x8be
  *(.text)
  .text          0x0000000000000084       0x14 /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+ .text          0x0000000000000098      0x21c /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+                0x0000000000000098                __aeabi_frsub
+                0x00000000000000a0                __aeabi_fsub
+                0x00000000000000a0                __subsf3
+                0x00000000000000a4                __aeabi_fadd
+                0x00000000000000a4                __addsf3
+                0x0000000000000204                __aeabi_ui2f
+                0x0000000000000204                __floatunsisf
+                0x000000000000020c                __floatsisf
+                0x000000000000020c                __aeabi_i2f
+                0x0000000000000228                __aeabi_ul2f
+                0x0000000000000228                __floatundisf
+                0x0000000000000238                __aeabi_l2f
+                0x0000000000000238                __floatdisf
+ .text          0x00000000000002b4      0x2a0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+                0x00000000000002b4                __mulsf3
+                0x00000000000002b4                __aeabi_fmul
+                0x000000000000041c                __divsf3
+                0x000000000000041c                __aeabi_fdiv
+ .text          0x0000000000000554       0x4c /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+                0x0000000000000554                __fixsfsi
+                0x0000000000000554                __aeabi_f2iz
  *(.text.*)
+ .text.out_sent_handler
+                0x00000000000005a0        0x2 src/feature_accel_discs.c.7.o
+                0x00000000000005a0                out_sent_handler
+ .text.out_failed_handler
+                0x00000000000005a2        0x2 src/feature_accel_discs.c.7.o
+                0x00000000000005a2                out_failed_handler
+ .text.in_received_handler
+                0x00000000000005a4        0x2 src/feature_accel_discs.c.7.o
+                0x00000000000005a4                in_received_handler
+ .text.in_dropped_handler
+                0x00000000000005a6        0x2 src/feature_accel_discs.c.7.o
+                0x00000000000005a6                in_dropped_handler
  .text.timer_callback
-                0x0000000000000098       0x6c src/feature_accel_discs.c.7.o
+                0x00000000000005a8       0xec src/feature_accel_discs.c.7.o
  .text.window_unload
-                0x0000000000000104       0x10 src/feature_accel_discs.c.7.o
+                0x0000000000000694       0x10 src/feature_accel_discs.c.7.o
  .text.window_load
-                0x0000000000000114       0x78 src/feature_accel_discs.c.7.o
+                0x00000000000006a4       0x7c src/feature_accel_discs.c.7.o
  .text.startup.main
-                0x000000000000018c       0x88 src/feature_accel_discs.c.7.o
-                0x000000000000018c                main
+                0x0000000000000720       0xc0 src/feature_accel_discs.c.7.o
+                0x0000000000000720                main
  .text.accel_data_service_unsubscribe
-                0x0000000000000214        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000214                accel_data_service_unsubscribe
+                0x00000000000007e0        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000007e0                accel_data_service_unsubscribe
  .text.accel_service_peek
-                0x0000000000000220        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000220                accel_service_peek
+                0x00000000000007ec        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000007ec                accel_service_peek
  .text.app_event_loop
-                0x000000000000022c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x000000000000022c                app_event_loop
+                0x00000000000007f8        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000007f8                app_event_loop
+ .text.app_message_open
+                0x0000000000000804        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000804                app_message_open
  .text.app_timer_register
-                0x0000000000000238        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000238                app_timer_register
+                0x0000000000000810        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000810                app_timer_register
+ .text.dict_write_tuplet
+                0x000000000000081c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x000000000000081c                dict_write_tuplet
  .text.layer_add_child
-                0x0000000000000244        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000244                layer_add_child
+                0x0000000000000828        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000828                layer_add_child
  .text.layer_destroy
-                0x0000000000000250        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000250                layer_destroy
+                0x0000000000000834        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000834                layer_destroy
  .text.layer_get_frame
-                0x000000000000025c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x000000000000025c                layer_get_frame
- .text.memset   0x0000000000000268        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000268                memset
+                0x0000000000000840        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000840                layer_get_frame
+ .text.memset   0x000000000000084c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x000000000000084c                memset
  .text.snprintf
-                0x0000000000000274        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000274                snprintf
+                0x0000000000000858        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000858                snprintf
  .text.text_layer_create
-                0x0000000000000280        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000280                text_layer_create
+                0x0000000000000864        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000864                text_layer_create
  .text.text_layer_get_layer
-                0x000000000000028c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x000000000000028c                text_layer_get_layer
+                0x0000000000000870        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000870                text_layer_get_layer
  .text.text_layer_set_text
-                0x0000000000000298        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x0000000000000298                text_layer_set_text
+                0x000000000000087c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x000000000000087c                text_layer_set_text
  .text.text_layer_set_text_alignment
-                0x00000000000002a4        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002a4                text_layer_set_text_alignment
+                0x0000000000000888        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000888                text_layer_set_text_alignment
  .text.window_create
-                0x00000000000002b0        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002b0                window_create
+                0x0000000000000894        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000894                window_create
  .text.window_destroy
-                0x00000000000002bc        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002bc                window_destroy
+                0x00000000000008a0        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008a0                window_destroy
  .text.window_get_root_layer
-                0x00000000000002c8        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002c8                window_get_root_layer
+                0x00000000000008ac        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008ac                window_get_root_layer
  .text.window_set_background_color
-                0x00000000000002d4        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002d4                window_set_background_color
+                0x00000000000008b8        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008b8                window_set_background_color
  .text.window_set_window_handlers
-                0x00000000000002e0        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002e0                window_set_window_handlers
+                0x00000000000008c4        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008c4                window_set_window_handlers
  .text.window_stack_push
-                0x00000000000002ec        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002ec                window_stack_push
+                0x00000000000008d0        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008d0                window_stack_push
+ .text.app_message_outbox_begin
+                0x00000000000008dc        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008dc                app_message_outbox_begin
+ .text.app_message_outbox_send
+                0x00000000000008e8        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008e8                app_message_outbox_send
+ .text.app_message_register_inbox_dropped
+                0x00000000000008f4        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x00000000000008f4                app_message_register_inbox_dropped
+ .text.app_message_register_inbox_received
+                0x0000000000000900        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000900                app_message_register_inbox_received
+ .text.app_message_register_outbox_failed
+                0x000000000000090c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x000000000000090c                app_message_register_outbox_failed
+ .text.app_message_register_outbox_sent
+                0x0000000000000918        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000918                app_message_register_outbox_sent
  .text.accel_data_service_subscribe
-                0x00000000000002f8        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
-                0x00000000000002f8                accel_data_service_subscribe
+                0x0000000000000924        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+                0x0000000000000924                accel_data_service_subscribe
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000000304       0x1a src/feature_accel_discs.c.7.o
+                0x0000000000000930       0x12 src/feature_accel_discs.c.7.o
 
-.glue_7         0x0000000000000320        0x0
+.glue_7         0x0000000000000944        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x0000000000000320        0x0
+.glue_7t        0x0000000000000944        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000000320        0x0
+.vfp11_veneer   0x0000000000000944        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000000320        0x0
+.v4_bx          0x0000000000000944        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000000320        0x0
+.iplt           0x0000000000000944        0x0
  .iplt          0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x0000000000000320        0x0
+.rel.dyn        0x0000000000000944        0x0
  .rel.iplt      0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+ .rel.got       0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x0000000000000320        0x4
+.data           0x0000000000000944        0x4
  *(.data)
- .data          0x0000000000000320        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x0000000000000320        0x4 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000000320                __dso_handle
- .data          0x0000000000000324        0x0 src/feature_accel_discs.c.7.o
- .data          0x0000000000000324        0x0 appinfo.auto.c.7.o
- .data          0x0000000000000324        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
- .data          0x0000000000000324        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x0000000000000324        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x0000000000000944        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x0000000000000944        0x4 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000000944                __dso_handle
+ .data          0x0000000000000948        0x0 src/feature_accel_discs.c.7.o
+ .data          0x0000000000000948        0x0 appinfo.auto.c.7.o
+ .data          0x0000000000000948        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
+ .data          0x0000000000000948        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .data          0x0000000000000948        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .data          0x0000000000000948        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .data          0x0000000000000948        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000000948        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
 
-.igot.plt       0x0000000000000324        0x0
+.igot.plt       0x0000000000000948        0x0
  .igot.plt      0x0000000000000000        0x0 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.bss            0x0000000000000324       0x2c
+.got            0x0000000000000948        0x4
+ .got           0x0000000000000948        0x4 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+
+.got.plt        0x000000000000094c        0xc
+ .got.plt       0x000000000000094c        0xc /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x000000000000094c                _GLOBAL_OFFSET_TABLE_
+
+.bss            0x0000000000000958       0x8f
  *(.bss)
  *(.bss.*)
+ .bss.i         0x0000000000000958        0x4 src/feature_accel_discs.c.7.o
  .bss.text_layer
-                0x0000000000000324        0x4 src/feature_accel_discs.c.7.o
+                0x000000000000095c        0x4 src/feature_accel_discs.c.7.o
  .bss.disc_layer
-                0x0000000000000328        0x4 src/feature_accel_discs.c.7.o
+                0x0000000000000960        0x4 src/feature_accel_discs.c.7.o
  .bss.window_frame
-                0x000000000000032c        0x8 src/feature_accel_discs.c.7.o
- .bss.buff      0x0000000000000334       0x14 src/feature_accel_discs.c.7.o
- .bss.timer     0x0000000000000348        0x4 src/feature_accel_discs.c.7.o
- .bss.window    0x000000000000034c        0x4 src/feature_accel_discs.c.7.o
+                0x0000000000000964        0x8 src/feature_accel_discs.c.7.o
+ .bss.buff      0x000000000000096c       0x3c src/feature_accel_discs.c.7.o
+ .bss.timer     0x00000000000009a8        0x4 src/feature_accel_discs.c.7.o
+ .bss.message   0x00000000000009ac       0x28 src/feature_accel_discs.c.7.o
+ .bss.window    0x00000000000009d4        0x4 src/feature_accel_discs.c.7.o
+ COMMON         0x00000000000009d8        0xf src/feature_accel_discs.c.7.o
+                0x00000000000009d8                lastData
 
 DISCARD
  libc.a(*)
  libm.a(*)
  libgcc.a(*)
  *(.eh_frame)
-OUTPUT(/Users/mozilla/Documents/accel-example/build/pebble-app.elf elf32-littlearm)
+OUTPUT(/Users/mozilla/Documents/TempoRun/accel-example/build/pebble-app.elf elf32-littlearm)
 
 .ARM.attributes
                 0x0000000000000000       0x27
@@ -764,9 +835,15 @@ OUTPUT(/Users/mozilla/Documents/accel-example/build/pebble-app.elf elf32-littlea
  .ARM.attributes
                 0x00000000000000a8       0x21 /Users/mozilla/pebble-dev/PebbleSDK-2.3/Pebble/lib/libpebble.a(tmpAGzHFdpebble.o)
  .ARM.attributes
-                0x00000000000000c9       0x29 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+                0x00000000000000c9       0x19 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x00000000000000f2       0x19 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+                0x00000000000000e2       0x19 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x00000000000000fb       0x19 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .ARM.attributes
+                0x0000000000000114       0x29 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .ARM.attributes
+                0x000000000000013d       0x19 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
 
 .comment        0x0000000000000000       0x4e
  .comment       0x0000000000000000       0x4e /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
@@ -775,35 +852,50 @@ OUTPUT(/Users/mozilla/Documents/accel-example/build/pebble-app.elf elf32-littlea
  .comment       0x0000000000000000       0x4f appinfo.auto.c.7.o
  .comment       0x0000000000000000       0x4f /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000      0xc64
- .debug_info    0x0000000000000000      0x938 src/feature_accel_discs.c.7.o
- .debug_info    0x0000000000000938      0x32c appinfo.auto.c.7.o
+.debug_info     0x0000000000000000     0x1637
+ .debug_info    0x0000000000000000     0x10e0 src/feature_accel_discs.c.7.o
+ .debug_info    0x00000000000010e0      0x32c appinfo.auto.c.7.o
+ .debug_info    0x000000000000140c       0xb9 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .debug_info    0x00000000000014c5       0xb9 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_info    0x000000000000157e       0xb9 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_abbrev   0x0000000000000000      0x31a
- .debug_abbrev  0x0000000000000000      0x266 src/feature_accel_discs.c.7.o
- .debug_abbrev  0x0000000000000266       0xb4 appinfo.auto.c.7.o
+.debug_abbrev   0x0000000000000000      0x4a9
+ .debug_abbrev  0x0000000000000000      0x3b9 src/feature_accel_discs.c.7.o
+ .debug_abbrev  0x00000000000003b9       0xb4 appinfo.auto.c.7.o
+ .debug_abbrev  0x000000000000046d       0x14 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .debug_abbrev  0x0000000000000481       0x14 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_abbrev  0x0000000000000495       0x14 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_loc      0x0000000000000000      0x12d
- .debug_loc     0x0000000000000000      0x12d src/feature_accel_discs.c.7.o
+.debug_loc      0x0000000000000000      0x265
+ .debug_loc     0x0000000000000000      0x265 src/feature_accel_discs.c.7.o
 
-.debug_aranges  0x0000000000000000       0x50
+.debug_aranges  0x0000000000000000       0xd0
  .debug_aranges
-                0x0000000000000000       0x38 src/feature_accel_discs.c.7.o
+                0x0000000000000000       0x58 src/feature_accel_discs.c.7.o
  .debug_aranges
-                0x0000000000000038       0x18 appinfo.auto.c.7.o
+                0x0000000000000058       0x18 appinfo.auto.c.7.o
+ .debug_aranges
+                0x0000000000000070       0x20 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .debug_aranges
+                0x0000000000000090       0x20 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_aranges
+                0x00000000000000b0       0x20 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_ranges   0x0000000000000000       0x28
- .debug_ranges  0x0000000000000000       0x28 src/feature_accel_discs.c.7.o
+.debug_ranges   0x0000000000000000       0xa8
+ .debug_ranges  0x0000000000000000       0xa8 src/feature_accel_discs.c.7.o
 
-.debug_line     0x0000000000000000      0x358
- .debug_line    0x0000000000000000      0x23c src/feature_accel_discs.c.7.o
- .debug_line    0x000000000000023c      0x11c appinfo.auto.c.7.o
+.debug_line     0x0000000000000000      0x6e5
+ .debug_line    0x0000000000000000      0x2d2 src/feature_accel_discs.c.7.o
+ .debug_line    0x00000000000002d2      0x11c appinfo.auto.c.7.o
+ .debug_line    0x00000000000003ee      0x128 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .debug_line    0x0000000000000516      0x149 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_line    0x000000000000065f       0x86 /Users/mozilla/pebble-dev/PebbleSDK-2.3/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_str      0x0000000000000000      0x5aa
- .debug_str     0x0000000000000000      0x41a src/feature_accel_discs.c.7.o
-                                        0x49e (size before relaxing)
- .debug_str     0x000000000000041a      0x190 appinfo.auto.c.7.o
-                                        0x287 (size before relaxing)
+.debug_str      0x0000000000000000      0xa32
+ .debug_str     0x0000000000000000      0x8b3 src/feature_accel_discs.c.7.o
+                                        0x971 (size before relaxing)
+ .debug_str     0x00000000000008b3      0x17f appinfo.auto.c.7.o
+                                        0x290 (size before relaxing)
 
-.debug_frame    0x0000000000000000       0x78
- .debug_frame   0x0000000000000000       0x78 src/feature_accel_discs.c.7.o
+.debug_frame    0x0000000000000000       0xc0
+ .debug_frame   0x0000000000000000       0xc0 src/feature_accel_discs.c.7.o
