@@ -5,8 +5,8 @@
 #define DISC_DENSITY 0.25
 #define ACCEL_RATIO 0.05
 #define ACCEL_STEP_MS 50
-#define BUFFER_SIZE 10
-
+#define BUFFER_SIZE 100
+#define QUEUE_SIZE 500
 
 typedef struct Vec2d {
   double x;
@@ -19,6 +19,19 @@ typedef struct Disc {
   double mass;
   double radius;
 } Disc;
+
+typedef struct node node; // Necessary in C, harmless (but non-idiomatic) in C++
+
+typedef struct node {
+  node * link;
+  float magnitude;
+} node;
+
+typedef struct queue{
+  node* head;
+  node* rear;
+  int size;
+} queue;
 
 AccelData lastData;
 
@@ -44,6 +57,30 @@ static char message[40];
 
 static int best;
 
+static float mean;
+
+static float tot;
+
+static queue* q;
+
+static float totalmean;
+
+float my_sqrt(const float num) {
+  const uint MAX_STEPS = 40;
+  const float MAX_ERROR = 0.001;
+  
+  float answer = num;
+  float ans_sqr = answer * answer;
+  uint step = 0;
+  while((ans_sqr - num > MAX_ERROR) && (step++ < MAX_STEPS)) {
+    answer = (answer + (num / answer)) / 2;
+    ans_sqr = answer * answer;
+  }
+  return answer;
+}
+
+
+static float largest;
  void out_sent_handler(DictionaryIterator *sent, void *context) {
    // outgoing message was delivered
  }
@@ -74,7 +111,7 @@ static AccelData accelDataDiff(AccelData d1, AccelData d2) {
   return diff;
 }
 
-static float get(int16_t* buff, int size){
+static float get(int16_t* buffer, int size){
 
   float total = 0;
 
@@ -102,7 +139,7 @@ static float get(int16_t* buff, int size){
 }
 
 // O(n^2)
-static int get_best_beat(int16_t* buff){
+static int get_best_beat(int16_t* buffer){
   //for adjusting size
   int bestsize = -1;
   int bestval = BUFFER_SIZE;
@@ -124,7 +161,7 @@ static int get_best_beat(int16_t* buff){
   return bestsize;
 }
 
-static void send_to_phone(uint8_t* buffer){
+static void send_to_phone(int16_t* buffer){
 
   // Byte array + k:
   //static const uint32_t SOME_DATA_KEY = 0xb00bf00b;
@@ -147,15 +184,21 @@ static void send_to_phone(uint8_t* buffer){
   // Write the CString:
   //dict_write_cstring(&iter, SOME_STRING_KEY, message);
   // End:
-  DictionaryIterator *iter;
 
-  dict_write_begin(&iter, buffer, sizeof(buffer));
+
+  uint8_t translated [BUFFER_SIZE];
+  for(int it = 0; it < BUFFER_SIZE; ++it){
+    translated[it] = (uint8_t) (buffer[it] / 256);
+  }
+  DictionaryIterator iter;
+
+  dict_write_begin(&iter, translated, sizeof(translated));
 
 
 
   //app_message_outbox_begin(&iter);
 
-  dict_write_data(&iter, 1, buffer , sizeof(buffer));
+  dict_write_data(&iter, 1, translated , sizeof(translated));
 
   //Tuplet value = TupletInteger(1, num);
   //dict_write_tuplet(iter, &value);
@@ -165,12 +208,81 @@ static void send_to_phone(uint8_t* buffer){
 
 }
 
+// - (float)sample:(NSMutableArray*)data {
+//     float mean = 0;
+//     largest = 0;
+//     for (NSNumber *pt in data) {
+//         if (pt.floatValue > largest) largest = pt.floatValue;
+//         mean += pt.floatValue;
+//     }
+//     mean = mean / data.count;
+//     totalmean = mean;
+//     float workingDev = 0;
+//     for (NSNumber *pt in data) {
+//         workingDev += pow(pt.floatValue - mean, 2);
+//     }
+//     workingDev = workingDev / data.count;
+//     return sqrtf(workingDev);
+// }
+
+static float sample(float* data){
+  mean = 0;
+  largest = 0;
+  for(node* curr = q->head; curr != NULL; curr = curr->link){
+    if (curr->magnitude > largest) 
+      largest = curr->magnitude;
+    mean += curr->magnitude;
+  }
+
+  mean = mean / QUEUE_SIZE;
+  totalmean = mean;
+  float workingDev = 0;
+
+  for(node* curr = q->head; curr != NULL; curr = curr->link){
+    workingDev += (curr->magnitude - mean) * (curr->magnitude - mean);
+  }
+
+  workingDev = workingDev / QUEUE_SIZE;
+  return my_sqrt(workingDev);
+}
+
+
+static void add_to_queue(float magnitude){
+  node* n = malloc(sizeof(float));
+  n->magnitude = magnitude;
+  n->link = NULL;
+  if(q->head == NULL){
+    q->head = n;
+    q->rear = n;
+  }
+
+  if(q->size >= QUEUE_SIZE){
+    node* tmp = q->head;
+    q->head = q->head->link;
+    free(tmp);
+  }
+  else{
+    q->size++;
+  }
+  q->rear->link = n;
+  q->rear = n;
+
+}
+
 static void timer_callback(void *data) {
   AccelData accel = (AccelData) { .x = 0, .y = 0, .z = 0 };
 
   accel_service_peek(&accel);
 
   AccelData delta = accelDataDiff(accel, lastData);  //LOOKINTO
+
+  float magnitude = my_sqrt((delta.x * delta.x) + (delta.y * delta.y) + (delta.z * delta.z));
+
+  tot += magnitude;
+  if(i % 4 == 0){
+    add_to_queue(magnitude);
+    magnitude = 0;
+  }
 
   /*
   float mag = fsqrt(delta.x + delta.y + delta.z);
@@ -197,7 +309,7 @@ static void timer_callback(void *data) {
     snprintf(message, 20, "%d", (int)(average * 1000));
     text_layer_set_text(text_layer, message);
 
-    send_to_phone((int) (average * 1000));
+    send_to_phone(buff);
   }
 
 
@@ -250,6 +362,13 @@ static void init(void) {
    const uint32_t outbound_size = 64;
    app_message_open(inbound_size, outbound_size);
 
+   q = malloc(sizeof(queue));
+
+   q->head = NULL;
+   q->size = 0;
+   q->rear = NULL;
+
+   tot = 0;
 
 }
 
