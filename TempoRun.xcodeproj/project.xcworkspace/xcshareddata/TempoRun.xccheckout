@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>961D1AE9-1686-4036-97EC-351092C10143</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TempoRun</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>59C3BE76-A74D-48CD-9717-309DF4E5C63D</key>
+		<string>https://github.com/jackflips/TempoRun.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TempoRun.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>59C3BE76-A74D-48CD-9717-309DF4E5C63D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jackflips/TempoRun.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>59C3BE76-A74D-48CD-9717-309DF4E5C63D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>59C3BE76-A74D-48CD-9717-309DF4E5C63D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TempoRun</string>
+		</dict>
+	</array>
+</dict>
+</plist>
