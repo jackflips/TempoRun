@@ -9,11 +9,32 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreMotion/CoreMotion.h>
+#import "Vect.h"
+#import <PebbleKit/PebbleKit.h>
 
-@interface ViewController : UIViewController <MPMediaPickerControllerDelegate>
+@interface ViewController : UIViewController <MPMediaPickerControllerDelegate> {
+    int counter;
+    int counter2;
+    int magCounter;
+    float runningVal;
+    float stddev;
+    float largest;
+    float periodLargest;
+    float periodMean;
+    float totalmean;
+    NSMutableArray *periodArray;
+    double lastTime;
+    double tempoOfSong;
+    NSURL *currentURL;
+    BOOL canChange;
+}
 
 - (IBAction)pickSong:(id)sender;
 
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+@property (strong, nonatomic) CMMotionManager *motionManager;
+@property (strong, nonatomic) NSMutableArray *queue;
+@property (strong, nonatomic) PBWatch *watch;
 
 @end

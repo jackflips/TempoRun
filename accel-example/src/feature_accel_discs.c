@@ -5,8 +5,8 @@
 #define DISC_DENSITY 0.25
 #define ACCEL_RATIO 0.05
 #define ACCEL_STEP_MS 50
-#define BUFFER_SIZE 100
 #define QUEUE_SIZE 500
+#define PERIOD_QUEUE_SIZE 251
 
 typedef struct Vec2d {
   double x;
@@ -35,6 +35,8 @@ typedef struct queue{
 
 AccelData lastData;
 
+AccelData thisData;
+
 static Disc discs[NUM_DISCS];
 
 static double next_radius = 3;
@@ -49,7 +51,7 @@ static AppTimer *timer;
 
 static TextLayer* text_layer;
 
-static int16_t buff[BUFFER_SIZE];
+//static int16_t buff[BUFFER_SIZE];
 
 static int i;
 
@@ -61,9 +63,21 @@ static float mean;
 
 static float tot;
 
-static queue* q;
+static queue* qu;
+static queue* periodQueue;
 
 static float totalmean;
+
+static int first;
+
+static int canChange;
+
+static float periodArray;
+
+
+static time_t lastTime;
+
+static time_t thisTime;
 
 float my_sqrt(const float num) {
   const uint MAX_STEPS = 40;
@@ -161,7 +175,7 @@ static int get_best_beat(int16_t* buffer){
   return bestsize;
 }
 
-static void send_to_phone(int16_t* buffer){
+static void send_to_phone(int num){
 
   // Byte array + k:
   //static const uint32_t SOME_DATA_KEY = 0xb00bf00b;
@@ -185,11 +199,13 @@ static void send_to_phone(int16_t* buffer){
   //dict_write_cstring(&iter, SOME_STRING_KEY, message);
   // End:
 
-
+/*
   uint8_t translated [BUFFER_SIZE];
   for(int it = 0; it < BUFFER_SIZE; ++it){
     translated[it] = (uint8_t) (buffer[it] / 256);
   }
+
+  */
   DictionaryIterator iter;
 
   dict_write_begin(&iter, translated, sizeof(translated));
@@ -198,10 +214,10 @@ static void send_to_phone(int16_t* buffer){
 
   //app_message_outbox_begin(&iter);
 
-  dict_write_data(&iter, 1, translated , sizeof(translated));
+  //dict_write_data(&iter, 1, translated , sizeof(translated));
 
-  //Tuplet value = TupletInteger(1, num);
-  //dict_write_tuplet(iter, &value);
+  Tuplet value = TupletInteger(1, num);
+  dict_write_tuplet(iter, &value);
 
 
   app_message_outbox_send();
@@ -247,7 +263,7 @@ static float sample(float* data){
 }
 
 
-static void add_to_queue(float magnitude){
+static void add_to_queue(queue* q, float magnitude, int size){
   node* n = malloc(sizeof(float));
   n->magnitude = magnitude;
   n->link = NULL;
@@ -256,7 +272,7 @@ static void add_to_queue(float magnitude){
     q->rear = n;
   }
 
-  if(q->size >= QUEUE_SIZE){
+  if(q->size >= size){
     node* tmp = q->head;
     q->head = q->head->link;
     free(tmp);
@@ -269,50 +285,82 @@ static void add_to_queue(float magnitude){
 
 }
 
+static void sort(float* array, int size){
+  for(int outer = 0; outer < size; outer++){
+    for(int inner = 0; inner < (size - outer) - 1; inner++){
+      float temp;
+      if(array[inner] > array[outer+1]){
+        temp = array[inner];
+        array[inner] = array[inner+1];
+        array[inner+1] = temp;
+      }
+    }
+  }
+}
+
 static void timer_callback(void *data) {
-  AccelData accel = (AccelData) { .x = 0, .y = 0, .z = 0 };
+  //AccelData thisData = (AccelData) { .x = 0, .y = 0, .z = 0 };
 
-  accel_service_peek(&accel);
+  accel_service_peek(&thisData);
 
-  AccelData delta = accelDataDiff(accel, lastData);  //LOOKINTO
+  if(first){
+    lastData = thisData;
+    first = 1;
+    return;
+  }
+
+  AccelData delta = accelDataDiff(thisData, lastData);  //LOOKINTO
 
   float magnitude = my_sqrt((delta.x * delta.x) + (delta.y * delta.y) + (delta.z * delta.z));
 
   tot += magnitude;
   if(i % 4 == 0){
-    add_to_queue(magnitude);
-    magnitude = 0;
-  }
+    add_to_queue(magnitude, qu, BUFFER_SIZE );
+    if (magnitude > totalmean + (stddev * 1.2)) {
 
-  /*
-  float mag = fsqrt(delta.x + delta.y + delta.z);
+      text_layer_set_text(text_layer, "Press a button");
+      text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
 
-  void priq_push(pri_queue q, void *data, int pri)
-  priq_push(q, mag, ftoi(mag));
 
-  snprintf(buff, 20, "%i, %i, %i", accel.x, accel.y, accel.z);
-*/
+      /*
+      thisTime = time(NULL);
 
-  buff[i++] = delta.x;
-  //int best = -8;
-  //++best;
-  
+      if(lastTime != 0){
+        time_t tempTime = thisTime - lastTime;
+        add_to_queue(periodQueue, tempTime, PERIOD_QUEUE_SIZE);
 
-  if(i >= BUFFER_SIZE){
-    i = 0;
-    int total = 0;
-    for(int it = 0; it < BUFFER_SIZE; ++it){
-      total += abs(buff[it]);
+      }
+      lastTime = thisTime;
+
+      */
     }
+    else{
+      text_layer_set_text(text_layer, "");
+      text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
 
-    float average = total / BUFFER_SIZE;
-    snprintf(message, 20, "%d", (int)(average * 1000));
-    text_layer_set_text(text_layer, message);
+    }
+  }
+  
+  // if (i % 1000 == 0){
+  //   canChange = 1;
+  //   sort()
+  // }
 
-    send_to_phone(buff);
+
+  if ((i % 200) == 0) {
+    stddev = sample();
+    // if (canChange) {
+    //     sort()
+    //     double fuckyou = [[sortedArray objectAtIndex:(int)(sortedArray.count/2)] doubleValue];
+    //     double shit = (1.0 / fuckyou) * 60;
+        
+    //     [self playURLWithRate:[self pickCorrectTempo:tempoOfSong feetBPM:shit]];
+    // }
   }
 
 
+
+  i = (i + 1) % 10000;
 
   timer = app_timer_register(ACCEL_STEP_MS, timer_callback, NULL);
 }
@@ -362,13 +410,28 @@ static void init(void) {
    const uint32_t outbound_size = 64;
    app_message_open(inbound_size, outbound_size);
 
-   q = malloc(sizeof(queue));
+   qu = malloc(sizeof(queue));
 
-   q->head = NULL;
-   q->size = 0;
-   q->rear = NULL;
+   qu->head = NULL;
+   qu->size = 0;
+   qu->rear = NULL;
+
+   periodQueue->head = NULL;
+   periodQueue->size = 0;
+   periodQueue->rear = NULL;
 
    tot = 0;
+
+   // lastData = malloc(sizeof (AccelData));
+   // thisData = malloc(sizeof (thisData));
+   thisData = (AccelData) { .x = 0, .y = 0, .z = 0 };
+   lastData = (AccelData) { .x = 0, .y = 0, .z = 0 };
+
+   first = 1;
+   canChange = 0;
+
+   lastTime = 0;
+   thisTime = 0;
 
 }
 
