@@ -10,8 +10,12 @@
 
 @interface Vect : NSObject
 
-@property (nonatomic) float x;
-@property (nonatomic) float y;
-@property (nonatomic) float z;
+@property (nonatomic) int x;
+@property (nonatomic) int y;
+@property (nonatomic) int z;
+@property (nonatomic) double timeOf;
+@property (nonatomic) float magnitude;
+
+- (id)initWithX:(int)x Y:(int)y Z:(int)z;
 
 @end

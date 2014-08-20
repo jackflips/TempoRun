@@ -18,8 +18,6 @@
     int counter2;
     int magCounter;
     float runningVal;
-    float stddev;
-    float largest;
     float periodLargest;
     float periodMean;
     float totalmean;
@@ -28,6 +26,14 @@
     double tempoOfSong;
     NSURL *currentURL;
     BOOL canChange;
+    
+    //////REWRITE///////
+    NSMutableArray *values;
+    Vect *lastVect;
+    float queueMean;
+    BOOL changeLocked;
+    int reportCounter;
+    NSMutableArray *buffer;
 }
 
 - (IBAction)pickSong:(id)sender;

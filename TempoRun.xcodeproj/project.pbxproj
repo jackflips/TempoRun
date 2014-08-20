@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0D3B93199D890000FAD5E0 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0D3B92199D890000FAD5E0 /* bg.png */; };
 		ADAA0612198DA3DC002121FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0611198DA3DC002121FA /* Foundation.framework */; };
 		ADAA0614198DA3DC002121FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0613198DA3DC002121FA /* CoreGraphics.framework */; };
 		ADAA0616198DA3DC002121FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA0615198DA3DC002121FA /* UIKit.framework */; };
@@ -34,6 +35,7 @@
 		ADAA06A9198EC937002121FA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA06A8198EC936002121FA /* MessageUI.framework */; };
 		ADAA06AB198EC953002121FA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA06AA198EC953002121FA /* CFNetwork.framework */; };
 		ADAA06AD198EC964002121FA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAA06AC198EC964002121FA /* libz.dylib */; };
+		ADB6F52E199C4404004B0E5B /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADB6F52D199C4404004B0E5B /* bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD0D3B92199D890000FAD5E0 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		ADAA060E198DA3DC002121FA /* TempoRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempoRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAA0611198DA3DC002121FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ADAA0613198DA3DC002121FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +104,7 @@
 		ADAA06A8198EC936002121FA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		ADAA06AA198EC953002121FA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		ADAA06AC198EC964002121FA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		ADB6F52D199C4404004B0E5B /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 		ADAA0605198DA3DC002121FA = {
 			isa = PBXGroup;
 			children = (
+				AD0D3B92199D890000FAD5E0 /* bg.png */,
+				ADB6F52D199C4404004B0E5B /* bg.jpg */,
 				ADAA06A2198EC903002121FA /* PebbleKit.framework */,
 				ADAA06A0198EC8F8002121FA /* PebbleVendor.framework */,
 				ADAA069D198EBC22002121FA /* Vect.h */,
@@ -334,7 +340,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB6F52E199C4404004B0E5B /* bg.jpg in Resources */,
 				ADAA0628198DA3DC002121FA /* Main_iPad.storyboard in Resources */,
+				AD0D3B93199D890000FAD5E0 /* bg.png in Resources */,
 				ADAA062D198DA3DC002121FA /* Images.xcassets in Resources */,
 				ADAA0625198DA3DC002121FA /* Main_iPhone.storyboard in Resources */,
 				ADAA061C198DA3DC002121FA /* InfoPlist.strings in Resources */,

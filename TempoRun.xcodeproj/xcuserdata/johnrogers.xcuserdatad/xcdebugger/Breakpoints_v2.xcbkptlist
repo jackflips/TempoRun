@@ -8,13 +8,14 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
+            condition = "vector.timeOf &lt; lastTime"
             continueAfterRunningActions = "No"
             filePath = "TempoRun/ViewController.m"
-            timestampString = "428797167.84421"
+            timestampString = "429659084.087485"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>

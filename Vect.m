@@ -10,4 +10,15 @@
 
 @implementation Vect
 
+- (id)initWithX:(int)x Y:(int)y Z:(int)z {
+    if ( self = [super init] ) {
+        _x = x;
+        _y = y;
+        _z = z;
+        return self;
+    } else {
+        return nil;
+    }
+}
+
 @end

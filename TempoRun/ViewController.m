@@ -9,12 +9,6 @@
 #import "ViewController.h"
 #import "ENAPI.h"
 
-@interface ViewController ()
-
-@property (strong, nonatomic) Vect *lastVect;
-
-@end
-
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -23,21 +17,25 @@
     [ENAPIRequest setApiKey:@"JZSRGTDREFDFN0LRB"];
     
     _audioPlayer = [[AVAudioPlayer alloc] init];
-    _lastVect = nil;
+    lastVect = nil;
+    changeLocked = YES;
+    queueMean = 0;
     _queue = [NSMutableArray array];
     counter = 1;
     counter2 = 1;
+    reportCounter = 0;
     magCounter = 0;
     runningVal = 0;
-    stddev = 1;
-    largest = 100000;
+    //stddev = 1;
+    //largest = 100000;
     periodArray = [NSMutableArray array];
-    /*
+    values = [NSMutableArray array];
     
-    _watch = [[PBPebbleCentral defaultCentral] lastConnectedWatch];
+    _watch = [[PBPebbleCentral
+               defaultCentral] lastConnectedWatch];
     
     uuid_t myAppUUIDbytes;
-    NSUUID *myAppUUID = [[NSUUID alloc] initWithUUIDString:@"3aa643c5-acd4-4897-9213-5e6812da3857"];
+    NSUUID *myAppUUID = [[NSUUID alloc] initWithUUIDString:@"ed943cee-19fe-4913-8110-be59f3787f8b"];
     [myAppUUID getUUIDBytes:myAppUUIDbytes];
     
     [[PBPebbleCentral defaultCentral] setAppUUID:[NSData dataWithBytes:myAppUUIDbytes length:16]];
@@ -52,16 +50,103 @@
     }
      ];
     
+    buffer = [NSMutableArray array];
+    
     [_watch appMessagesAddReceiveUpdateHandler:^BOOL(PBWatch *watch, NSDictionary *update) {
-        NSLog(@"Received message: %@", update);
+        BOOL full = NO;
+        if (reportCounter > 10) {
+            full = YES;
+        }
+        
+        [buffer removeAllObjects];
+        int parseCounter = 0;
+        NSString *data = [update objectForKey:[NSNumber numberWithInt:0]];
+        Vect *newVect = [[Vect alloc] init];
+        while (data.length > 1) {
+            int commaLoc = (int)[data rangeOfString:@","].location;
+            if (parseCounter == 0) {
+                newVect.x = [[data substringToIndex:commaLoc] intValue];
+            } else if (parseCounter == 1) {
+                newVect.y = [[data substringToIndex:commaLoc] intValue];
+            } else if (parseCounter == 2) {
+                newVect.z = [[data substringToIndex:commaLoc] intValue];
+            } else if (parseCounter == 3) {
+                newVect.timeOf = [[data substringToIndex:commaLoc] doubleValue];
+                if (!lastVect) {
+                    lastVect = newVect;
+                } else {
+                    Vect *currentVect = [self subtractVect:lastVect other:newVect];
+                    NSLog(@"%@", currentVect);
+                    currentVect.magnitude = sqrt(pow(currentVect.x, 2) + pow(currentVect.y, 2) + pow(currentVect.z, 2));
+                    currentVect.timeOf = newVect.timeOf;
+                    [buffer addObject:currentVect];
+                    newVect = [[Vect alloc] init];
+                    data = [data substringFromIndex:commaLoc+1];
+                    parseCounter = 0;
+                    continue;
+                }
+            }
+            data = [data substringFromIndex:commaLoc+1];
+            parseCounter++;
+            
+        }
+        
+        [values addObjectsFromArray:buffer];
+        
+        NSLog(@"%@", update);
+        
+        
+        /* Now do analysis on the queue */
+        
+        float stddev = [self sample:values];
+        for (Vect *vector in buffer) {
+            if (vector.magnitude > queueMean + (stddev * 1.2)) {
+                if (magCounter > 4) {
+                    //NSLog(@"worked");
+                    if (lastTime == 0) {
+                        lastTime = vector.timeOf;
+                    } else {
+                        double period = vector.timeOf - lastTime;
+                        [periodArray insertObject:[NSNumber numberWithDouble:period] atIndex:0];
+                        lastTime = vector.timeOf;
+                        magCounter = 0;
+                    }
+                    if (reportCounter > 30) {
+                        [periodArray removeLastObject];
+                    }
+                }
+                magCounter++;
+            }
+        }
+        
+        NSLog(@"%@", periodArray);
+        
+        /* Now anaylze these values to see if we have any spikes */
+        
+        if (!changeLocked) {
+            NSArray *sortedArray = [periodArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                if ([obj1 doubleValue] > [obj2 doubleValue])
+                    return NSOrderedDescending;
+                else if ([obj1 floatValue] < [obj2 floatValue])
+                    return NSOrderedAscending;
+                return NSOrderedSame;
+            }];
+            double medianPeriod = [[sortedArray objectAtIndex:(int)(sortedArray.count/2)] doubleValue];
+            double bpm = (1.0 / medianPeriod) * 60;
+            NSLog(@"%f", bpm);
+        }
+        
+        
+        
+        //[self playURLWithRate:[self pickCorrectTempo:tempoOfSong feetBPM:shit]];
+        
+        
+        
+        reportCounter++;
         return YES;
     }];
-     */
 
-    
-    NSLog(@"Last connected watch: %@", _watch);
-
-    
+    /*
     _motionManager = [[CMMotionManager alloc] init];
     [_motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
                                             withHandler:^(CMDeviceMotion *motion, NSError *error) {
@@ -144,6 +229,7 @@
                                                 counter++;
                                                 magCounter++;
                                             }];
+     */
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -159,16 +245,18 @@
 
 - (float)sample:(NSMutableArray*)data {
     float mean = 0;
-    largest = 0;
-    for (NSNumber *pt in data) {
-        if (pt.floatValue > largest) largest = pt.floatValue;
-        mean += pt.floatValue;
+    float largest = 0;
+    for (Vect *vector in data) {
+        if (vector.magnitude > largest) {
+            largest = vector.magnitude;
+        }
+        mean += vector.magnitude;
     }
     mean = mean / data.count;
-    totalmean = mean;
+    queueMean = mean;
     float workingDev = 0;
-    for (NSNumber *pt in data) {
-        workingDev += pow(pt.floatValue - mean, 2);
+    for (Vect *vector in data) {
+        workingDev += pow(vector.magnitude - mean, 2);
     }
     workingDev = workingDev / data.count;
     return sqrtf(workingDev);
